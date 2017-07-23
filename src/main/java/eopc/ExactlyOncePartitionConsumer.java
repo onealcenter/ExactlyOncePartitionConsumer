@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 
 import java.nio.ByteBuffer;
 import java.util.*;
- 
+
 public class ExactlyOncePartitionConsumer {
 	private static final Logger logger = LoggerFactory.getLogger(ExactlyOncePartitionConsumer.class);
 	private static final int BUFFER_SIZE = 100 * 1024 * 1024; // SimpleConsumer-buffer_size-100MB
@@ -151,7 +151,7 @@ public class ExactlyOncePartitionConsumer {
 
 	private boolean handleMessage(long offset, byte[] bytes, SimpleConsumer consumer, String clientName) {
 		logger.debug("offset: {}, message: {}", offset, new String(bytes));
-		//事务性处理消息和offset
+		// 事务性处理消息和offset
 		return commitOffset(consumer, offset, clientName);
 		// return true;
 	}
